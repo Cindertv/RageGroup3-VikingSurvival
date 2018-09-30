@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
         float xMovement = x * movementSpeed * Time.deltaTime;
         float yMovement = y * movementSpeed * Time.deltaTime;
 
-        transform.Translate(new Vector3(xMovement, 0, yMovement), Space.World);
+        //transform.Translate(new Vector3(xMovement, 0, yMovement), Space.World);
+        transform.Translate(Vector3.down * y * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * x * movementSpeed * Time.deltaTime);
     }
 }

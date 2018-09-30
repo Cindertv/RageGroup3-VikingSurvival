@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 
     NavMeshAgent agent;
     public PlayerController player;
+    public int enemyHealth = 100;
 
     // Use this for initialization
     void Start()
