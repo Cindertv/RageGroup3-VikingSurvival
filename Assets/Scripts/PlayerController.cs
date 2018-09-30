@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         Vector3 worldSpaceFacingDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(worldSpaceFacingDirection);
+        
         Vector3 direction = worldSpaceFacingDirection - transform.position;
 
         //Get the facing angle between the player and the mouse position
         float angle = -Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
+        
 
         transform.rotation = Quaternion.Euler(-90, 90 + angle, 0);
         float xMovement = x * movementSpeed * Time.deltaTime;
