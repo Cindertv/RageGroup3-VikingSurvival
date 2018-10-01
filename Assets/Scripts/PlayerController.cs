@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 1f;
+    public float movementSpeed = 0.5f;
     public int playerHeatlh = 100;
     // Use this for initialization
     void Start()
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
         if (playerHeatlh <= 0)
         {           
             print("PlayerDead");
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movementSpeed = 1;
         }
 
     }
