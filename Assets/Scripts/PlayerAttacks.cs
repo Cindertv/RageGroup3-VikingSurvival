@@ -18,6 +18,8 @@ public class PlayerAttacks : MonoBehaviour
     }
     void Shoot ()
     {
+        
+
         var bullet = Instantiate(bulletprefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * speed;
 
