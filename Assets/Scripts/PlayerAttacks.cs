@@ -18,8 +18,8 @@ public class PlayerAttacks : MonoBehaviour
     }
     void Shoot ()
     {
-        var bullet = (GameObject)Instantiate(bulletprefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * -speed;
+        var bullet = Instantiate(bulletprefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * speed;
 
         Destroy(bullet, 4.0f);
 
