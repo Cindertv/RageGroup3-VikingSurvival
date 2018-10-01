@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     NavMeshAgent agent;
     public PlayerController player;
@@ -14,6 +15,7 @@ public class EnemyController : MonoBehaviour {
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -21,4 +23,20 @@ public class EnemyController : MonoBehaviour {
     {
         agent.SetDestination(player.transform.position);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        BulletAttack bullet = other.GetComponent<BulletAttack>();
+        if (bullet != null)
+        {
+            Debug.Log("I got hit by " + bullet.name);
+            enemyHealth -= bullet.bulletDamage;
+            if (enemyHealth <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+            Destroy(other.gameObject);
+
+        }
+    }
 }
+

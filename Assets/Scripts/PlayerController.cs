@@ -3,6 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 1f;
+    public int playerHeatlh = 100;
     // Use this for initialization
     void Start()
     {
@@ -30,5 +31,11 @@ public class PlayerController : MonoBehaviour
         //transform.Translate(new Vector3(xMovement, 0, yMovement), Space.World);
         transform.Translate(Vector3.down * y * movementSpeed * Time.deltaTime);
         transform.Translate(Vector3.right * x * movementSpeed * Time.deltaTime);
+        if (playerHeatlh <= 0)
+        {           
+            print("PlayerDead");
+        }
+
     }
+
 }
