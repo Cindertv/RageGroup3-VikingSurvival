@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,18 +10,21 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     public PlayerController player;
     public int enemyHealth = 100;
+    public GameObject healthPackPrefab;
+    public Transform healthPackSpawnPoint;
+    public Image uiEnemyHeatlh;
+
     public GameObject healthBoxPrefab;
     public Transform healthSpawnPoint;
 
-    // Use this for initialization
     void Start()
     {
+        uiEnemyHeatlh.fillAmount = 1f;
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
-
+        UpdateUI();
     }
 
-    // Update is called once per frame
     void Update()
     {
         agent.SetDestination(player.transform.position);
@@ -30,16 +34,25 @@ public class EnemyController : MonoBehaviour
         BulletAttack bullet = other.GetComponent<BulletAttack>();
         if (bullet != null)
         {
-            Debug.Log("I got hit by " + bullet.name);
             enemyHealth -= bullet.bulletDamage;
+            UpdateUI();
             if (enemyHealth <= 0)
             {
                 Destroy(this.gameObject);
+                if (Random.value < 1)
+                {
+                    Instantiate(healthPackPrefab, healthPackSpawnPoint.position, healthPackSpawnPoint.rotation);
+                }
                 Instantiate(healthBoxPrefab, healthSpawnPoint.position, healthSpawnPoint.rotation);
             }
             Destroy(other.gameObject);
 
         }
+    }
+
+    private void UpdateUI()
+    {
+        uiEnemyHeatlh.fillAmount = enemyHealth / 100f;
     }
 }
 

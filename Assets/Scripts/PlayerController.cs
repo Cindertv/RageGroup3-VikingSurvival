@@ -4,17 +4,32 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 0.5f;
-    public int playerHeatlh = 100;
-    public Image playerheatlh;
+    public float speedMultiplier = 1;
+    public float playerHeatlh = 100;
+    public Image uiPlayerHealth;
+    Animator anim;
+    
     // Use this for initialization
     void Start()
     {
-
+        anim = GetComponentInChildren<Animator>();
+        uiPlayerHealth.fillAmount = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speedMultiplier = 5f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speedMultiplier = 1f;
+        }
+
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
@@ -26,19 +41,21 @@ public class PlayerController : MonoBehaviour
         float angle = -Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         
 
-        transform.rotation = Quaternion.Euler(-90, 90 + angle, 0);
-        float xMovement = x * movementSpeed * Time.deltaTime;
-        float yMovement = y * movementSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 90 + angle, 0);
 
         
-        transform.Translate(Vector3.down * y * movementSpeed * Time.deltaTime);
-        transform.Translate(Vector3.right * x * movementSpeed * Time.deltaTime);
+        anim.SetFloat("Speed", y * movementSpeed * speedMultiplier);
+        transform.Translate(Vector3.forward * y * movementSpeed * speedMultiplier * Time.deltaTime);
+        transform.Translate(Vector3.right * x * movementSpeed * speedMultiplier * Time.deltaTime);
 
         if (playerHeatlh <= 0)
         {           
             print("PlayerDead");
         }
 
+       
+
+        
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             movementSpeed = 5;
