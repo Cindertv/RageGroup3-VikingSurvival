@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Image uiPlayerHealth;
     Animator anim;
     
-    // Use this for initialization
+    
     void Start()
     {
         playerHeatlh = 100f;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         uiPlayerHealth.fillAmount = 1;
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
 

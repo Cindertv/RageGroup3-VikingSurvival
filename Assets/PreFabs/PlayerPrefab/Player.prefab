@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   speedMultiplier: 1
-  playerHeatlh: 100
   uiPlayerHealth: {fileID: 0}
 --- !u!114 &114614709216238098
 MonoBehaviour:
