@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4497613408588290}
   m_Layer: 0
-  m_Name: Firepoint
+  m_Name: firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 95432439735755826}
   - component: {fileID: 114458570339161890}
   - component: {fileID: 195303408665573572}
+  - component: {fileID: 114083412284517244}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433304762005658}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 1.065, y: 0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4497613408588290}
@@ -90,6 +91,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114083412284517244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433304762005658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9e0ffdaf456f345b5255fe86031e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 54101216734164724, guid: cc8960fccfe0a2d47b242d2c6eca01b4,
+    type: 2}
+  speed: 5
+  bulletprefab: {fileID: 1527457916265412, guid: cc8960fccfe0a2d47b242d2c6eca01b4,
+    type: 2}
+  firePoint: {fileID: 4497613408588290}
+  anim: {fileID: 0}
 --- !u!114 &114458570339161890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dc0a838eb4f4e4ebd01a821a9640aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 10
+  speedMultiplier: 1
+  playerHeatlh: 100
+  uiPlayerHealth: {fileID: 0}
 --- !u!195 &195303408665573572
 NavMeshAgent:
   m_ObjectHideFlags: 1
