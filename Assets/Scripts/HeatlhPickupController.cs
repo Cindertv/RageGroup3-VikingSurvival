@@ -5,11 +5,10 @@ using UnityEngine;
 public class HeatlhPickupController : MonoBehaviour {
 
     public PlayerController playerHealth;
-    public float amountOfhealthPickupedup = 0.125f;
+    public float amountOfhealthPickupedup = 20f;
 
 	void Start ()
     {
-        amountOfhealthPickupedup = 0.125f;
         playerHealth = FindObjectOfType<PlayerController>();
     }
 
@@ -17,12 +16,12 @@ public class HeatlhPickupController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         
-        //if (playerHealth.playerHeatlh <= 100)
+        if (playerHealth.playerHeatlh <= 100)
         {
             
             if (other.CompareTag("Player"))
             {
-                playerHealth.playerHeatlh += amountOfhealthPickupedup;
+                playerHealth.AddHealth(amountOfhealthPickupedup);
                 print("amountOfhealthPickupedup" + amountOfhealthPickupedup);
                 Destroy(this.gameObject);          
             }

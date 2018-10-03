@@ -13,10 +13,9 @@ public class EnemyController : MonoBehaviour
     public GameObject healthPackPrefab;
     public Transform healthPackSpawnPoint;
     public Image uiEnemyHeatlh;
-
     public GameObject healthBoxPrefab;
     public Transform healthSpawnPoint;
-
+    public float enemyDamage;
     void Start()
     {
         uiEnemyHeatlh.fillAmount = 1f;
@@ -26,7 +25,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
         agent.SetDestination(player.transform.position);
     }
     private void OnTriggerEnter(Collider other)
@@ -46,6 +45,7 @@ public class EnemyController : MonoBehaviour
                 Instantiate(healthBoxPrefab, healthSpawnPoint.position, healthSpawnPoint.rotation);
             }
             Destroy(other.gameObject);
+            
 
         }
     }

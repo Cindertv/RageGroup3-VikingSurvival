@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
 
     public Text scoreText;
     public int score = 0;
+    float delay = 5f;
+    float decay = 0.05f;
 
     private void Awake()
     {
@@ -24,7 +26,7 @@ public class GameController : MonoBehaviour {
     void Start()
     {
 
-        InvokeRepeating("Spawn", 0, 3);
+        StartCoroutine(Spawner());
         UpdateScore();
 
     }
@@ -32,7 +34,7 @@ public class GameController : MonoBehaviour {
     void Spawn()
     {
         Vector3 spawnPoint = Random.insideUnitSphere * radius;
-        spawnPoint.y = 0; 
+        spawnPoint.y = 0;
 
         Instantiate(enemyPrefab, transform.position + spawnPoint, Quaternion.identity);
     }
@@ -46,5 +48,15 @@ public class GameController : MonoBehaviour {
     {
         score++;
         UpdateScore();
+    }
+    IEnumerator Spawner()
+    {
+        do
+        {
+            Spawn() ;
+            yield return new WaitForSecondsRealtime(delay);
+            delay -= decay;
+            delay = Mathf.Clamp(delay, 0.1f,float.MaxValue);
+        } while (true);
     }
 }

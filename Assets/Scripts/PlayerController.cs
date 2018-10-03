@@ -5,18 +5,19 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 0.5f;
     public float speedMultiplier = 1;
-    public float playerHeatlh = 100;
+    public float playerHeatlh { get; private set; }
     public Image uiPlayerHealth;
     Animator anim;
     
-    // Use this for initialization
+    
     void Start()
     {
+        playerHeatlh = 100f;
         anim = GetComponentInChildren<Animator>();
         uiPlayerHealth.fillAmount = 1;
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
 
@@ -65,6 +66,30 @@ public class PlayerController : MonoBehaviour
             movementSpeed = 1;
         }
          
+    }
+    public void TakeDamage (float ammount)
+    {
+
+        playerHeatlh -= ammount;
+
+        if (playerHeatlh <0)
+        {
+            print("Player is dead");
+        }
+        updateUI();
+
+    }
+    private void updateUI()
+    {
+
+        uiPlayerHealth.fillAmount = playerHeatlh / 100f;
+
+    }
+    public void AddHealth(float ammount)
+    {
+
+        playerHeatlh += ammount;
+        updateUI();
     }
 
 }
