@@ -173,6 +173,9 @@ MonoBehaviour:
     type: 2}
   healthPackSpawnPoint: {fileID: 4737830621056864}
   uiEnemyHeatlh: {fileID: 114500405919750820}
+  healthBoxPrefab: {fileID: 1745713791308872, guid: 83de3de242b354e44968f031779d3f9a,
+    type: 2}
+  healthSpawnPoint: {fileID: 4737830621056864}
 --- !u!114 &114322647047444280
 MonoBehaviour:
   m_ObjectHideFlags: 1

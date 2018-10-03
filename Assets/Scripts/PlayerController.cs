@@ -53,11 +53,9 @@ public class PlayerController : MonoBehaviour
             print("PlayerDead");
         }
 
-<<<<<<< HEAD
        
 
         
-=======
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             movementSpeed = 5;
@@ -66,7 +64,6 @@ public class PlayerController : MonoBehaviour
         {
             movementSpeed = 1;
         }
->>>>>>> 4f3bb261e254f7ecc592e6e1f4401939eeb6e3a2
          
     }
 

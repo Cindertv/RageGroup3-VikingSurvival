@@ -17,7 +17,7 @@ public class HeatlhPickupController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         
-        if (playerHealth.playerHeatlh <= 100)
+        //if (playerHealth.playerHeatlh <= 100)
         {
             
             if (other.CompareTag("Player"))
