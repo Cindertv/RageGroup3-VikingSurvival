@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     public PlayerController player;
     public int enemyHealth = 100;
+    public GameObject healthBoxPrefab;
+    public Transform healthSpawnPoint;
 
     // Use this for initialization
     void Start()
@@ -33,6 +35,7 @@ public class EnemyController : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 Destroy(this.gameObject);
+                Instantiate(healthBoxPrefab, healthSpawnPoint.position, healthSpawnPoint.rotation);
             }
             Destroy(other.gameObject);
 
