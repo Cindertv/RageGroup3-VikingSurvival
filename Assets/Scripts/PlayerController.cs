@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         
         Vector3 direction = worldSpaceFacingDirection - transform.position;
 
-        //Get the facing angle between the player and the mouse position
+        
         float angle = -Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         
 
@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movementSpeed = 5;
+        }
+        else
         {
             movementSpeed = 1;
         }
