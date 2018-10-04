@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     public GameObject healthBoxPrefab;
     public Transform healthSpawnPoint;
     public float enemyDamage;
+    public Animator anim;
+    public float movementSpeed = 0.5f;
     void Start()
     {
         uiEnemyHeatlh.fillAmount = 1f;
@@ -27,6 +29,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     { 
         agent.SetDestination(player.transform.position);
+        anim.SetFloat("Speed", agent.velocity.magnitude);
     }
     private void OnTriggerEnter(Collider other)
     {
