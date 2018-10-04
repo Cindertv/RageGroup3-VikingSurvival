@@ -44,11 +44,11 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 score.AddScore();
-                if (Random.value < 0.1)
+                if (Random.value < 0.3f)
                 {
                     Instantiate(healthPackPrefab, healthPackSpawnPoint.position, healthPackSpawnPoint.rotation);
                 }
-                Instantiate(healthBoxPrefab, healthSpawnPoint.position, healthSpawnPoint.rotation);
+                
             }
             Destroy(other.gameObject);
             
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateUI()
     {
-        uiEnemyHeatlh.fillAmount = enemyHealth / 100f;
+        uiEnemyHeatlh.fillAmount = enemyHealth / 200f;
     }
 }
 
