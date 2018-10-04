@@ -9,24 +9,29 @@ public class EnemyController : MonoBehaviour
 
     NavMeshAgent agent;
     public PlayerController player;
-    public int enemyHealth = 100;
+    public float enemyHealth = 100f;
     public GameObject healthPackPrefab;
     public Transform healthPackSpawnPoint;
     public Image uiEnemyHeatlh;
     public GameObject healthBoxPrefab;
     public Transform healthSpawnPoint;
     public float enemyDamage;
+    public Animator anim;
+    public float movementSpeed = 0.5f;
+    public GameController score;
     void Start()
     {
         uiEnemyHeatlh.fillAmount = 1f;
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
+        score = FindObjectOfType<GameController>();
         UpdateUI();
     }
 
     void Update()
     { 
         agent.SetDestination(player.transform.position);
+        anim.SetFloat("Speed", agent.velocity.magnitude);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -38,11 +43,12 @@ public class EnemyController : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 Destroy(this.gameObject);
-                if (Random.value < 1)
+                score.AddScore();
+                if (Random.value < 0.3f)
                 {
                     Instantiate(healthPackPrefab, healthPackSpawnPoint.position, healthPackSpawnPoint.rotation);
                 }
-                Instantiate(healthBoxPrefab, healthSpawnPoint.position, healthSpawnPoint.rotation);
+                
             }
             Destroy(other.gameObject);
             
@@ -52,7 +58,7 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateUI()
     {
-        uiEnemyHeatlh.fillAmount = enemyHealth / 100f;
+        uiEnemyHeatlh.fillAmount = enemyHealth / 200f;
     }
 }
 
