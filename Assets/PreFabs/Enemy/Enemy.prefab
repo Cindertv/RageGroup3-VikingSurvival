@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 195495576221849970}
   - component: {fileID: 114026691377341422}
   - component: {fileID: 136897488956501944}
+  - component: {fileID: 95572798921414670}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,7 +89,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4353614093248954}
   - component: {fileID: 212973855787203932}
-  - component: {fileID: 95067207713493726}
   m_Layer: 0
   m_Name: Enemy Sprite
   m_TagString: Untagged
@@ -148,8 +148,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553590182535066}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4132450888388844}
@@ -169,13 +169,13 @@ Transform:
   m_Father: {fileID: 4294812286326888}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!95 &95067207713493726
+--- !u!95 &95572798921414670
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1553590182535066}
+  m_GameObject: {fileID: 1529705767637128}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: aec18e60f3d3d2244b18cd5916ae0234, type: 2}
@@ -208,7 +208,7 @@ MonoBehaviour:
     type: 2}
   healthSpawnPoint: {fileID: 4737830621056864}
   enemyDamage: 0
-  anim: {fileID: 95067207713493726}
+  anim: {fileID: 95572798921414670}
   movementSpeed: 0.5
 --- !u!114 &114322647047444280
 MonoBehaviour:
@@ -288,7 +288,8 @@ MonoBehaviour:
   timeToattack: 3
   attackdamage: 4
   factor: 0.1
-  anim: {fileID: 95067207713493726}
+  anim: {fileID: 95572798921414670}
+  score: {fileID: 0}
 --- !u!135 &135095334341107190
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         // anim = GetComponentInChildren<Animator>();
+        
     }
 
     private void OnTriggerStay(Collider player)

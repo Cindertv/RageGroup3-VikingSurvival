@@ -18,11 +18,13 @@ public class EnemyController : MonoBehaviour
     public float enemyDamage;
     public Animator anim;
     public float movementSpeed = 0.5f;
+    public GameController score;
     void Start()
     {
         uiEnemyHeatlh.fillAmount = 1f;
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
+        score = FindObjectOfType<GameController>();
         UpdateUI();
     }
 
@@ -41,6 +43,7 @@ public class EnemyController : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 Destroy(this.gameObject);
+                score.AddScore();
                 if (Random.value < 1)
                 {
                     Instantiate(healthPackPrefab, healthPackSpawnPoint.position, healthPackSpawnPoint.rotation);
