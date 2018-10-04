@@ -48,14 +48,11 @@ public class PlayerController : MonoBehaviour
 
 
             anim.SetFloat("Speed", y * movementSpeed * speedMultiplier);
-            transform.Translate(Vector3.forward * y * movementSpeed * speedMultiplier * Time.deltaTime);
-            transform.Translate(Vector3.right * x * movementSpeed * speedMultiplier * Time.deltaTime);
+            transform.Translate(new Vector3(x * movementSpeed * speedMultiplier * Time.deltaTime, 0, y * movementSpeed * speedMultiplier * Time.deltaTime), Space.World);
+            //transform.Translate(Vector3.forward * y * movementSpeed * speedMultiplier * Time.deltaTime);
+            //transform.Translate(Vector3.right * x * movementSpeed * speedMultiplier * Time.deltaTime);
         }
-        if (playerHeatlh <= 0 && isAlive)
-        {
-            anim.SetTrigger("Death");
-            print("PlayerDead");
-        }
+
 
 
 
@@ -74,10 +71,11 @@ public class PlayerController : MonoBehaviour
     {
         playerHeatlh -= ammount;
 
-        if (playerHeatlh < 0)
+        if (playerHeatlh < 0 && isAlive)
         {
             isAlive = false;
             print("Player is dead");
+            anim.SetTrigger("Death");
             return;
         }
         UpdateUI();
@@ -90,9 +88,11 @@ public class PlayerController : MonoBehaviour
     }
     public void AddHealth(float ammount)
     {
-
-        playerHeatlh += ammount;
-        UpdateUI();
+        if (isAlive)
+        {
+            playerHeatlh += ammount;
+            UpdateUI();
+        }
     }
 
 }
