@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerAttacks : MonoBehaviour
+using UnityEngine.Audio;
+public class PlayerAttacks : PlayerSounds
 {
     public Rigidbody projectile;
     public float speed;
@@ -29,9 +29,11 @@ public class PlayerAttacks : MonoBehaviour
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * speed;
 
         anim.SetTrigger("Attack");
+        player.PlayOneShot(attack);
 
 
         Destroy(bullet, 4.0f);
     }
 
+    
 }
