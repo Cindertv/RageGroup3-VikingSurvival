@@ -80,10 +80,10 @@ public class PlayerController : MonoBehaviour
             print("Player is dead");
             return;
         }
-        updateUI();
+        UpdateUI();
 
     }
-    private void updateUI()
+    private void UpdateUI()
     {
         uiPlayerHealth.fillAmount = playerHeatlh / 100f;
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     {
 
         playerHeatlh += ammount;
-        updateUI();
+        UpdateUI();
     }
 
 }

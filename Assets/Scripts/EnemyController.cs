@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
 
     NavMeshAgent agent;
     public PlayerController player;
-    public int enemyHealth = 100;
+    public float enemyHealth = 100f;
     public GameObject healthPackPrefab;
     public Transform healthPackSpawnPoint;
     public Image uiEnemyHeatlh;
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 score.AddScore();
-                if (Random.value < 1)
+                if (Random.value < 0.1)
                 {
                     Instantiate(healthPackPrefab, healthPackSpawnPoint.position, healthPackSpawnPoint.rotation);
                 }

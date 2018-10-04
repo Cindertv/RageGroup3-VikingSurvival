@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyHealth: 100
+  enemyHealth: 200
   healthPackPrefab: {fileID: 1385567503279982, guid: 8f32f0596a4a9cc438fcd081f4ebe299,
     type: 2}
   healthPackSpawnPoint: {fileID: 4737830621056864}
@@ -207,9 +207,10 @@ MonoBehaviour:
   healthBoxPrefab: {fileID: 1745713791308872, guid: 83de3de242b354e44968f031779d3f9a,
     type: 2}
   healthSpawnPoint: {fileID: 4737830621056864}
-  enemyDamage: 0
+  enemyDamage: 2
   anim: {fileID: 95572798921414670}
   movementSpeed: 0.5
+  score: {fileID: 0}
 --- !u!114 &114322647047444280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +290,6 @@ MonoBehaviour:
   attackdamage: 4
   factor: 0.1
   anim: {fileID: 95572798921414670}
-  score: {fileID: 0}
 --- !u!135 &135095334341107190
 SphereCollider:
   m_ObjectHideFlags: 1
